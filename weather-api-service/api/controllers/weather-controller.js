@@ -11,7 +11,8 @@
   It is a good idea to list the modules that your application depends on in the package.json in the project root
  */
 var util = require('util');
-
+const chance = new require("chance").Chance();
+var faker = require('faker');
 /*
  Once you 'require' a module you can reference the things that it exports.  These are defined in module.exports.
 
@@ -24,9 +25,9 @@ var util = require('util');
   In the starter/skeleton project the 'get' operation on the '/hello' path has an operationId named 'hello'.  Here,
   we specify that in the exports of this module that 'hello' maps to the function named 'hello'
  */
-module.exports = {
-  hello: hello
-};
+  module.exports = {
+    weekweather: getWeekweather
+  };
 
 /*
   Functions in a127 controllers used for operations should take two parameters:
@@ -34,11 +35,24 @@ module.exports = {
   Param 1: a handle to the request object
   Param 2: a handle to the response object
  */
-function hello(req, res) {
+  String.prototype.correctForm = function () {
+    return this.split("/").reverse().join("-");
+  };
+function getWeekweather(req, res) {
   // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
-  var name = req.swagger.params.name.value || 'stranger';
-  var hello = util.format('Hello, %s!', name);
+  var date = req.swagger.params.date.value || '2020-05-31';
 
   // this sends back a JSON response which is a single string
-  res.json(hello);
+  res.json([
+  {
+    id: "" + faker.random.number(),
+      city: chance.city(),
+      temperature: chance.minute(),
+      time: chance.minute(), 
+      randomDate: chance
+        .date({ year: 2021, string: true, american: false })
+        .correctForm(),
+      date: date,
+  }
+])
 }
