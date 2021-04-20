@@ -42,6 +42,31 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  /highlight:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: weather-controller
+    get:
+      description: Discription days with the best weather
+      # used as the method name of the controller
+      operationId: highlight
+      parameters:
+        - name: date
+          in: query
+          description: The favorite weather on this week
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/Highlight"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"          
+    
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -69,6 +94,19 @@ definitions:
         type: string
       date:
         type: string 
+      
+  Highlight:
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      image:
+        type: string
+      location:
+        type: string
+      temperature:
+        type: integer     
         
   ErrorResponse:
     required:
