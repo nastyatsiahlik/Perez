@@ -18,13 +18,13 @@ consumes:
 produces:
   - application/json
 paths:
-  /weekweather:
+  /weather:
     # binds a127 app logic to a route
     x-swagger-router-controller: weather-controller
     get:
       description: Returns list of weather 
       # used as the method name of the controller
-      operationId: weekweather
+      operationId: weathers
       parameters:
         - name: date
           in: query
@@ -36,7 +36,7 @@ paths:
           description: Success
           schema:
             # a pointer to a definition
-            $ref: "#/definitions/WeekweatherResponse"
+            $ref: "#/definitions/WeathersResponse"
         # responses may fall through to errors
         default:
           description: Error
@@ -48,27 +48,19 @@ paths:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
-  WeekweatherResponse:
+  WeathersResponse:
       type: array
       items:
-        $ref:  "#/definitions/Weekweather"
+        $ref:  "#/definitions/Weather"
         
-  Weekweather:
+  Weather:
     required:
       - id
     properties:
       id:
         type: string  
-      city:
-        type: string  
-      name:
-        type: string
       temperature:
         type: integer  
-      time:
-        type: integer
-      randomDate:
-        type: string
       date:
         type: string 
       location:

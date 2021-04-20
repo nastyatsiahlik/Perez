@@ -10,9 +10,14 @@
 
   It is a good idea to list the modules that your application depends on in the package.json in the project root
  */
-var util = require('util');
-const chance = new require("chance").Chance();
-var faker = require('faker');
+  var util = require('util');
+  const chance = new require("chance").Chance();
+  var faker = require('faker');
+  const jsf = require('json-schema-faker');
+//const chance = require('chance')
+//const faker = require('faker')
+//jsf.extend('chance', () => new chance.Chance());
+//jsf.extend('faker', () => faker);
 /*
  Once you 'require' a module you can reference the things that it exports.  These are defined in module.exports.
 
@@ -26,7 +31,7 @@ var faker = require('faker');
   we specify that in the exports of this module that 'hello' maps to the function named 'hello'
  */
   module.exports = {
-    weekweather: getWeekweather
+    weathers: getWeathers
   };
 
 /*
@@ -38,7 +43,7 @@ var faker = require('faker');
   String.prototype.correctForm = function () {
     return this.split("/").reverse().join("-");
   };
-function getWeekweather(req, res) {
+function getWeathers(req, res) {
   // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
   var date = req.swagger.params.date.value || '2020-05-31';
 
@@ -46,16 +51,9 @@ function getWeekweather(req, res) {
   res.json([
   {
     id: "" + faker.random.number(),
-      city: chance.city(),
-      temperature: chance.minute(),
-      time: chance.minute(), 
-      randomDate: chance
-        .date({ year: 2021, string: true, american: false })
-        .correctForm(),
-      date: date,
-      location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
-      image : "23.png"
-  }
-])
+        temperature: chance.minute()
+    }
+  ])
+ 
 }
 

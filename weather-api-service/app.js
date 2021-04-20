@@ -17,8 +17,8 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   var port = process.env.PORT || 10010;
   app.listen(port);
 
-  if (swaggerExpress.runner.swagger.paths['/weekweather']) {
-    console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/weekweather?date=2021-03-03');
+  if (swaggerExpress.runner.swagger.paths['/weather']) {
+    console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/weather?date=2021-03-03');
   }
  
 });
