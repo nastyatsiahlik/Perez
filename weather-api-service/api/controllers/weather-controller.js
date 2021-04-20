@@ -26,7 +26,8 @@ var faker = require('faker');
   we specify that in the exports of this module that 'hello' maps to the function named 'hello'
  */
   module.exports = {
-    weekweather: getWeekweather
+    weekweather: getWeekweather,
+    highlight: getHighlight
   };
 
 /*
@@ -53,6 +54,21 @@ function getWeekweather(req, res) {
         .date({ year: 2021, string: true, american: false })
         .correctForm(),
       date: date,
+  }
+])
+}
+function getHighlight(req, res) {
+  // variables defined in the Swagger document can be referenced using req.swagger.params.{parameter_name}
+  var date = req.swagger.params.date.value || '2020-05-31';
+
+  // this sends back a JSON response which is a single string
+  res.json([
+  {
+    id: "" + faker.random.number(),
+    location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
+    temperature: chance.minute(), 
+    date: date,
+    image : "23.png"
   }
 ])
 }

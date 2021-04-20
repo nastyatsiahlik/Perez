@@ -106,7 +106,9 @@ definitions:
       location:
         type: string
       temperature:
-        type: integer     
+        type: integer   
+      date:
+        type: string     
         
   ErrorResponse:
     required:
