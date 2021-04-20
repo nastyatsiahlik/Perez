@@ -51,32 +51,55 @@ function getWeathers(req, res) {
   res.json([
   {
     id: "" + faker.random.number(),
-        temperature: chance.minute()
+        temperature: chance.minute(),
+        location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
+        image: faker.image.city(),
+        date: date
     },
     {
       id: "" + faker.random.number(),
-          temperature: chance.minute()
+          temperature: chance.minute(),
+          location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
+          image: faker.image.city(),
+          date: date
       },
     {
         id: "" + faker.random.number(),
-         temperature: chance.minute()
+         temperature: chance.minute(),
+         location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
+         image: "23.png",
+         date: date
+        
     },
     {
       id: "" + faker.random.number(),
-          temperature: chance.minute()
+          temperature: chance.minute(),
+          location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
+        image: "23.png",
+        date: date
     },
     {
       id: "" + faker.random.number(),
-          temperature: chance.minute()
+          temperature: chance.minute(),
+          location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
+        image: "23.png",
+        date: date
     },
     {
       id: "" + faker.random.number(),
-          temperature: chance.minute()
+          temperature: chance.minute(),
+          location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
+        image: "23.png",
+        date: date
     },
     {
       id: "" + faker.random.number(),
-          temperature: chance.minute()
-    }
+          temperature: chance.minute(),
+          location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
+        image: "23.png",
+        date: date
+    },
+
   ])
 }
 

@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
 import WeeklyScheduler from "./components/WeeklyScheduler";
-import CurrentEventsProgress from "components/CurrentEventsProgress";
+import PhotoWeather from "components/PhotoWeather";
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,10 +23,10 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/timetable">Day scheduler</Link>
+              <Link to="/timetable">Highlights weather</Link>
             </li>
             <li>
-              <Link to="/highlights">Weekly highlights</Link>
+              <Link to="/highlights">Weekly weather</Link>
             </li>
             <li>
               <Link to="/about">About</Link>
@@ -43,7 +43,7 @@ function App() {
                 <About />
               </Route>
               <Route path="/timetable/:id">
-                <CurrentEventsProgress />
+                <PhotoWeather />
               </Route>
               <Route path="/timetable">
                 <Redirect to={`/timetable/${moment().format("YYYY-MM-DD")}`} />
@@ -58,8 +58,8 @@ function App() {
                 <p>
                   {" "}
                   Welcome to our service that provides a schedule of painting exhiditions. Please explore{" "}
-                  <Link to="/highlights">highlights</Link> per week, or{" "}
-                  <Link to="/timetable">today scheduler</Link>
+                  <Link to="/highlights">weather</Link> on week, or{" "}
+                  <Link to="/timetable">highlights weather</Link>
                 </p>
               </Route>
 

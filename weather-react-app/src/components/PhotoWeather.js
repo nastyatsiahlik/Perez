@@ -37,11 +37,10 @@ class PhotoWeather extends React.Component {
         </h3>
         <ul>
           {this.state.weathers.map((weather) => (
-            <div key={weather.id}>
-              {weather.image} at the address {weather.location}
-              {weather.temperature} °C
-
-               {weather.date}
+            <div class="photo-txt" key={weather.id}>
+              <img src={weather.image} alt="тут должна быть картинка"></img>
+              <p>At the address {weather.location}</p>
+              {weather.temperature}°C on {weather.date}
             </div>
           ))}
         </ul>
