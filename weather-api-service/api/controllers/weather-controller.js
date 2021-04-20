@@ -67,7 +67,7 @@ function getWeathers(req, res) {
         id: "" + faker.random.number(),
          temperature: chance.minute(),
          location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
-         image: "23.png",
+         image: faker.image.city(),
          date: date
         
     },
@@ -75,28 +75,28 @@ function getWeathers(req, res) {
       id: "" + faker.random.number(),
           temperature: chance.minute(),
           location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
-        image: "23.png",
+        image: faker.image.city(),
         date: date
     },
     {
       id: "" + faker.random.number(),
           temperature: chance.minute(),
           location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
-        image: "23.png",
+        image: faker.image.city(),
         date: date
     },
     {
       id: "" + faker.random.number(),
           temperature: chance.minute(),
           location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
-        image: "23.png",
+        image: faker.image.city(),
         date: date
     },
     {
       id: "" + faker.random.number(),
           temperature: chance.minute(),
           location: faker.address.cityName() + ', ' + faker.address.streetAddress(),
-        image: "23.png",
+        image: faker.image.city(),
         date: date
     },
 

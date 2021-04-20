@@ -55,24 +55,25 @@ class WeeklyScheduler extends React.Component {
 
     <table align="center">
       <tr>
-    <table width="100px" align="left">
-      <tr>Monday</tr>
-      <tr>Tuesday</tr>
-      <tr>Wednesday</tr>
-      <tr>Thursday</tr>
-      <tr>Friday</tr>
-      <tr>Saturday</tr>
-      <tr>Sunday</tr>
-    </table>
-  
-    <table>
-    {this.state.weathers.map((weather) => (
-    <tr key={weather.id}>
-    {weather.temperature}°C
-    </tr>
-    ))}
-    </table>
-    </tr>
+        <table width="100px" align="left">
+          <tr><Link to="/day">Monday</Link></tr>
+          <tr><Link to="/day">Tuesday</Link></tr>
+          <tr><Link to="/day">Wednesday</Link></tr>
+          <tr><Link to="/day">Thursday</Link></tr>
+          <tr><Link to="/day">Friday</Link></tr>
+          <tr><Link to="/day">Saturday</Link></tr>
+          <tr><Link to="/day">Sunday</Link></tr>
+        </table>
+      
+        <table>
+          {this.state.weathers.map((weather) => (
+          <tr 
+            key={weather.id}>
+            {weather.temperature}°C
+          </tr>
+          ))}
+        </table>
+      </tr>
     </table>
     </div>
     );

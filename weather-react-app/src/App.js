@@ -3,6 +3,7 @@ import "./App.css";
 import React from "react";
 import WeeklyScheduler from "./components/WeeklyScheduler";
 import PhotoWeather from "components/PhotoWeather";
+import DayWeather from "components/DayWeather";
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,6 +30,9 @@ function App() {
               <Link to="/highlights">Weekly weather</Link>
             </li>
             <li>
+              <Link to="/day">Hour weather</Link>
+            </li>
+            <li>
               <Link to="/about">About</Link>
             </li>
           </ul>
@@ -52,14 +56,19 @@ function App() {
               <Route path="/highlights">
                 <WeeklyScheduler />
               </Route>
+              <Route path="/day">
+                <DayWeather />
+              </Route>
 
               <Route path="/">
-                <h1>Exhibition of paint</h1>
+                <h1>Welcome to weather center</h1>
                 <p>
                   {" "}
-                  Welcome to our service that provides a schedule of painting exhiditions. Please explore{" "}
-                  <Link to="/highlights">weather</Link> on week, or{" "}
-                  <Link to="/timetable">highlights weather</Link>
+                  Our service will help you find out the weather for a week by clicking on the link{" "} 
+                  <Link to="/highlights">weather</Link> on week, or{" "}, 
+                  for a day <Link to="/day">hour weather</Link>
+                  or see the best weather photos <Link to="/timetable">highlights weather</Link>
+                  <h3>Enjoy using!</h3>
                 </p>
               </Route>
 
@@ -92,7 +101,7 @@ function About() {
     <div>
       <h2>About us</h2>
       <p>
-        We cooperate with many exbition organaizers who will definitely not leave you indifferent!
+      We cooperate with many geomerological stations, so we ourselves have the most reliable sources.<p>We assure that you will not be overtaken by problems with weather conditions if you rely on our forecasts!</p>
       </p>
     </div>
   );
