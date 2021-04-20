@@ -37,32 +37,35 @@ class WeeklyScheduler extends React.Component {
 
   render() {
     return (
-      <div>
-        {/*<button onClick={this.handleReload}>Reload</button>*/}
-        <h2>Weekly weather</h2>
-        <h3>
-          Upcoming events from{" "}
-          <Moment format="YYYY/MM/DD">{this.state.start}</Moment> to{" "}
-          <Moment format="YYYY/MM/DD">{this.state.end}</Moment>{" "}
-        </h3>
-        <div>
-          <button onClick={this.handleReload}>Minsk</button>
-          <button onClick={this.handleReload}>Vitebsk</button>
-          <button onClick={this.handleReload}>Grodno</button>
-        </div>
-          {this.state.weathers.map((weather) => (
-            <div key={weather.id}>
-              <div>Monday: {weather.temperature}</div>
-            </div>
-          ))}
-           {this.state.weathers.map((weather) => (
-            <div key={weather.id}>
-              <div>Thuesday: {weather.temperature}</div>
-            </div>
-          ))}
-      </div>
+    <div>
+    {/*<button onClick={this.handleReload}>Reload</button>*/}
+    <h2>Weekly weather</h2>
+    <h3>
+    Upcoming events from{" "}
+    <Moment format="YYYY/MM/DD">{this.state.start}</Moment> to{" "}
+    <Moment format="YYYY/MM/DD">{this.state.end}</Moment>{" "}
+    </h3>
+    <div>
+    <button onClick={this.handleReload}>Minsk</button>
+    <button onClick={this.handleReload}>Vitebsk</button>
+    <button onClick={this.handleReload}>Grodno</button>
+    </div>
+    <table width="150px" align="left">
+      <tr>Monday</tr>
+      <tr>Tuesday</tr>
+    </table>
+    
+    <table>
+    {this.state.weathers.map((weather) => (
+    <tr width="150px" key={weather.id}>
+    {weather.temperature}
+    </tr>
+    ))}
+    </table>
+
+    </div>
     );
-  }
+    }
 }
 
 export default withRouter(WeeklyScheduler);
