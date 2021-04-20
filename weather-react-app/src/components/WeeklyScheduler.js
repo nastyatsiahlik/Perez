@@ -41,16 +41,21 @@ class WeeklyScheduler extends React.Component {
     {/*<button onClick={this.handleReload}>Reload</button>*/}
     <h2>Weekly weather</h2>
     <h3>
-    Upcoming weatherS from{" "}
+    Upcoming weather from{" "}
     <Moment format="YYYY/MM/DD">{this.state.start}</Moment> to{" "}
     <Moment format="YYYY/MM/DD">{this.state.end}</Moment>{" "}
     </h3>
-    <div>
-    <button onClick={this.handleReload}>Minsk</button>
-    <button onClick={this.handleReload}>Vitebsk</button>
-    <button onClick={this.handleReload}>Grodno</button>
-    </div>
-    <table width="150px" align="left">
+    <table align="left">
+      <tr>
+            <button class="btn" onClick={this.handleReload}>Minsk</button>
+            <button class="btn" onClick={this.handleReload}>Zhodino</button>
+            <button class="btn" onClick={this.handleReload}>Miory</button>
+      </tr>      
+    </table>
+
+    <table align="center">
+      <tr>
+    <table width="100px" align="left">
       <tr>Monday</tr>
       <tr>Tuesday</tr>
       <tr>Wednesday</tr>
@@ -59,15 +64,16 @@ class WeeklyScheduler extends React.Component {
       <tr>Saturday</tr>
       <tr>Sunday</tr>
     </table>
-    
+  
     <table>
     {this.state.weathers.map((weather) => (
-    <tr width="150px" key={weather.id}>
-    {weather.temperature}
+    <tr key={weather.id}>
+    {weather.temperature}°C
     </tr>
     ))}
     </table>
-
+    </tr>
+    </table>
     </div>
     );
     }
