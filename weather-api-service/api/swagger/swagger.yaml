@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
-  version: "0.0.1"
-  title: Hello World App
+  version: "0.1.0"
+  title: Weather service
 # during dev, should point to your local machine
 host: localhost:10010
 # basePath prefixes all resource paths 
@@ -18,17 +18,17 @@ consumes:
 produces:
   - application/json
 paths:
-  /hello:
+  /weekweather:
     # binds a127 app logic to a route
-    x-swagger-router-controller: hello_world
+    x-swagger-router-controller: weather-controller
     get:
-      description: Returns 'Hello' to the caller
+      description: Returns list of weather 
       # used as the method name of the controller
-      operationId: hello
+      operationId: weekweather
       parameters:
-        - name: name
+        - name: date
           in: query
-          description: The name of the person to whom to say hello
+          description: Filtering date
           required: false
           type: string
       responses:
@@ -36,7 +36,7 @@ paths:
           description: Success
           schema:
             # a pointer to a definition
-            $ref: "#/definitions/HelloWorldResponse"
+            $ref: "#/definitions/WeekweatherResponse"
         # responses may fall through to errors
         default:
           description: Error
@@ -46,15 +46,34 @@ paths:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
 definitions:
-  HelloWorldResponse:
+  WeekweatherResponse:
+      type: array
+      items:
+        $ref:  "#/definitions/Weekweather"
+        
+  Weekweather:
     required:
-      - message
+      - id
     properties:
-      message:
+      id:
+        type: string  
+      city:
+        type: string  
+      name:
         type: string
+      temperature:
+        type: integer  
+      time:
+        type: integer
+      randomDate:
+        type: string
+      date:
+        type: string 
+        
   ErrorResponse:
     required:
       - message
     properties:
       message:
         type: string
+
