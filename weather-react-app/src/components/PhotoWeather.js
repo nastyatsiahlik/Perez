@@ -6,40 +6,42 @@ import Moment from "react-moment";
 
 const api = new Api.DefaultApi();
 
-class CurrentEventsProgress extends React.Component {
+class PhotoWeather extends React.Component {
   constructor(props) {
     super(props);
     const id = this.props.match?.params.id || moment().format("YYYY-MM-DD");
     console.log(id);
     this.state = {
-      events: [],
+      weathers: [],
       targetDate: id,
     };
     this.handleReload = this.handleReload.bind(this);
     this.handleReload();
   }
 
-  async handleReload(event) {
-    const response = await api.events({
+  async handleReload(weather) {
+    const response = await api.weathers({
       date: this.state.targetDate,
     });
-    this.setState({ events: response });
+    this.setState({ weathers: response });
   }
 
   render() {
     return (
       <div>
         {/* <button onClick={this.handleReload}>Reload</button> */}
-        <h2>Day scheduler</h2>
+        <h2>Our favorite weather</h2>
         <h3>
-          Upcoming events on{" "}
+          Weather on{" "}
           <Moment format="YYYY/MM/DD">{this.state.targetDate}</Moment>{" "}
         </h3>
         <ul>
-          {this.state.events.map((event) => (
-            <div key={event.id}>
-              {event.name} in style {event.theme}
-              at the address {event.location}
+          {this.state.weathers.map((weather) => (
+            <div key={weather.id}>
+              {weather.image} at the address {weather.location}
+              {weather.temperature} °C
+
+               {weather.date}
             </div>
           ))}
         </ul>
@@ -48,4 +50,4 @@ class CurrentEventsProgress extends React.Component {
   }
 }
 
-export default withRouter(CurrentEventsProgress);
+export default withRouter(PhotoWeather);
