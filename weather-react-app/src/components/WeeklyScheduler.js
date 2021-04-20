@@ -41,7 +41,7 @@ class WeeklyScheduler extends React.Component {
     {/*<button onClick={this.handleReload}>Reload</button>*/}
     <h2>Weekly weather</h2>
     <h3>
-    Upcoming events from{" "}
+    Upcoming weatherS from{" "}
     <Moment format="YYYY/MM/DD">{this.state.start}</Moment> to{" "}
     <Moment format="YYYY/MM/DD">{this.state.end}</Moment>{" "}
     </h3>
@@ -53,6 +53,11 @@ class WeeklyScheduler extends React.Component {
     <table width="150px" align="left">
       <tr>Monday</tr>
       <tr>Tuesday</tr>
+      <tr>Wednesday</tr>
+      <tr>Thursday</tr>
+      <tr>Friday</tr>
+      <tr>Saturday</tr>
+      <tr>Sunday</tr>
     </table>
     
     <table>
