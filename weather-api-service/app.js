@@ -20,7 +20,5 @@ SwaggerExpress.create(config, function(err, swaggerExpress) {
   if (swaggerExpress.runner.swagger.paths['/weekweather']) {
     console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/weekweather?date=2021-03-03');
   }
-  if (swaggerExpress.runner.swagger.paths['/highlight']) {
-    console.log('try this:\ncurl http://127.0.0.1:' + port + '/api/v1/hightlight?date=2021-03-03');
-  }
+ 
 });
