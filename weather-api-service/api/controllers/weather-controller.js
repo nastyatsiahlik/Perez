@@ -52,6 +52,10 @@ function getWeathers(req, res) {
   {
     id: "" + faker.random.number(),
         temperature: chance.minute()
+    },
+    {
+    id: "" + faker.random.number(),
+        temperature: chance.minute()
     }
   ])
  

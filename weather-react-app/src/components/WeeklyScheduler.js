@@ -50,19 +50,16 @@ class WeeklyScheduler extends React.Component {
           <button onClick={this.handleReload}>Vitebsk</button>
           <button onClick={this.handleReload}>Grodno</button>
         </div>
-        <div>
-          {this.state.weather.map((weather) => (
+          {this.state.weathers.map((weather) => (
             <div key={weather.id}>
-              <p>Monday: {weather.temperature}</p>
-              <p>Tuesday: {weather.temperature}</p>
-              <p>Wednesday: {weather.temperature}</p>
-              <p>Thursday: {weather.temperature}</p>
-              <p>Friday: {weather.temperature}</p>
-              <p>Saturday: {weather.temperature}</p>
-              <p>Sunday: {weather.temperature}</p>
+              <div>Monday: {weather.temperature}</div>
             </div>
           ))}
-        </div>
+           {this.state.weathers.map((weather) => (
+            <div key={weather.id}>
+              <div>Thuesday: {weather.temperature}</div>
+            </div>
+          ))}
       </div>
     );
   }
